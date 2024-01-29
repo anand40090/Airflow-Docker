@@ -57,8 +57,28 @@ ENTRYPOINT ["/bin/bash","/start.sh"]
 #!/bin/bash
 airflow standalone
 ```
-### 3. Build the docker image
+### 3. Build the docker image from the docker file
 ```
 docker build . -t airflow-local
 ```
+- Note : Keep all the required files for docker image build in one folder 
+
+![image](https://github.com/anand40090/Airflow-Docker/assets/32446706/c6c3b9d5-f84f-4b5d-8135-43217db6ec0c)
+
+- Verify the created docker image
+
+![image](https://github.com/anand40090/Airflow-Docker/assets/32446706/49c599c5-b370-4669-9a0d-a318dbe99c29)
+
+
+### 4. Use the create Apache-Airflow docker image to run the container 
+```
+docker run -p 8080:8080 -v /home/admin1/apache-airflow/dags:/opt/airflow/dags  -d airflow-local
+
+# Here replace local path of airflow DAG's repository, so that if you made changes to dags in the folder we don't have to restart docker
+```
+Output - 
+
+![image](https://github.com/anand40090/Airflow-Docker/assets/32446706/2a8a9d6d-f3fe-40d1-8d63-d6b3954c154b)
+
+
 
