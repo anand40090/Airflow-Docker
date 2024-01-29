@@ -12,7 +12,7 @@ Apache Airflow™ is an open-source platform for developing, scheduling, and mon
 
 1. Create Docker file
 1. Use docker build to run the container from docker file
-1. Mount the Dags folder to docker conatiner
+1. Mount the Dags folder from local system to the docker conatiner
 2. Expose the docker container on the listener port to access the Airflow GUI
 3. https://harshalpagar.medium.com/running-airflow-with-docker-on-developer-environment-9c1c9559668c
 
