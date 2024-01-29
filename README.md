@@ -33,6 +33,32 @@ sudo apt install python3.8 -y
 sudo apt install docker-compose
 docker compose version
 ```
-### Create new Dockerfile for airflow docker container , copy the below code to it
+### 1. Create new Dockerfile and copy the below code to it
 
-1. Create docker file 
+```
+FROM apache/airflow:2.5.1-python3.9
+
+COPY requirements.txt /requirements.txt
+
+RUN pip install --no-cache-dir -r /requirements.txt
+
+USER root
+
+RUN apt-get update && apt-get install -y \
+    wget
+
+COPY start.sh /start.sh
+RUN chmod +x /start.sh
+USER airflow
+ENTRYPOINT ["/bin/bash","/start.sh"]
+```
+### 2. Create start.sh file to run the sets of Airflow command at once 
+```
+#!/bin/bash
+airflow standalone
+```
+### 3. Build the docker image
+```
+docker build . -t airflow-local
+```
+
