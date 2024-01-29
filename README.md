@@ -23,7 +23,13 @@ Apache Airflow™ is an open-source platform for developing, scheduling, and mon
 sudo apt install docker.io -y 
 ```
 
-1. Install python
+2. Install python
 ```
 sudo apt install python3.8 -y 
+```
+
+3. Install docker compose
+```
+sudo apt-get install docker-compose-plugin
+docker compose version
 ```
