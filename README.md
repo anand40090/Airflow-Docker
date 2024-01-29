@@ -30,6 +30,9 @@ sudo apt install python3.8 -y
 
 3. Install docker compose
 ```
-sudo apt-get install docker-compose-plugin
+sudo apt install docker-compose
 docker compose version
 ```
+### Create new Dockerfile for airflow docker container , copy the below code to it
+
+1. Create docker file 
